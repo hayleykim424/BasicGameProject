@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	}
 
 	//Creating window
-	window = SDL_CreateWindow("Tutorial 1 task 2 Hayley Kim 6720", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 500, SDL_WINDOW_SHOWN);
+	window = SDL_CreateWindow("SNACKS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 700, SDL_WINDOW_SHOWN);
 
 	if (window != NULL)
 		cout << "Window created :)" << endl;
@@ -69,11 +69,11 @@ int main(int argc, char **argv)
 
 	//Load up our font
 	//								font file path				font size
-	TTF_Font* font = TTF_OpenFont("assets/vermin_vibes_1989.ttf", 16);
+	TTF_Font* font = TTF_OpenFont("assets/vermin_vibes_1989.ttf", 50);
 	//create a colour for our text
-	SDL_Color textcolour = { 0, 0, 255, 255 }; //RGBA
+	SDL_Color textcolour = { 0, 0, 0, 255 }; //RGBA
 	//Create surface using font, colour and desired output text
-	SDL_Surface* textSurface = TTF_RenderText_Blended(font, "Hello Game!", textcolour);
+	SDL_Surface* textSurface = TTF_RenderText_Blended(font, "SNACKS", textcolour);
 	//convert suface to texture
 	SDL_Texture* textTexture = SDL_CreateTextureFromSurface(renderer, textSurface);
 	//don't need the surface no more
@@ -81,55 +81,55 @@ int main(int argc, char **argv)
 
 	//setup rectangle to describe where to draw this text
 	SDL_Rect textDestination;
-	textDestination.x = 50;
-	textDestination.y = 50;
+	textDestination.x = 150;
+	textDestination.y = 100;
 
 	//to get the width and height, query the surface
 	SDL_QueryTexture(textTexture, NULL, NULL, &textDestination.w, &textDestination.h);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
 
 
 	bool loop = true;
+
 
 	while (loop)
 	{
 		
 		//backgroud colour
-		SDL_SetRenderDrawColor(renderer, 255, 215, 201, 255);
+		SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
 		//Clearing screen with current draw colour
 		SDL_RenderClear(renderer);
+		
+
+		SDL_Event event;
+		while (SDL_PollEvent(&event))
+		{
+			//check if user has closed window
+			if (event.type == SDL_QUIT)
+			{
+				//exit loop
+				loop = false;
+			}
+		}
 
 
+		//render textTexture
+		SDL_RenderCopy(renderer, textTexture, NULL, &textDestination);
+
+		//when done drawing, present all our renderings to the window
 		SDL_RenderPresent(renderer);
-
-		if (SDL_GetTicks() > 6500)
-			loop = false;
-
 
 	}
 
+	//cleanup
+	SDL_DestroyTexture(textTexture);
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+
+	//shut down sdl sub systems
 	SDL_Quit();
 
 	system("pause");
