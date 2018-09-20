@@ -19,6 +19,10 @@ PlayGameState::PlayGameState()
 	hero->pos.x = 200;
 	hero->pos.y = 200;
 
+	wallTop = new Wall();
+	wallTop->setRenderer(Globals::renderer);
+	wallTop->pos.x = 0;
+	wallTop->pos.y = 10;
 	/*
 	ball1 = new Ball();
 	ball1->setRenderer(Globals::renderer);
@@ -32,6 +36,7 @@ PlayGameState::PlayGameState()
 	*/
 	//add them to the list of game objects
 	gameObjects.push_back(hero);
+	gameObjects.push_back(wallTop);
 	//gameObjects.push_back(ball1);
 	//gameObjects.push_back(ball2);
 

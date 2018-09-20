@@ -4,6 +4,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "Hero.h"
+#include "Wall.h"
 #include "KeyboardHandler.h"
 #include "GameControllerHandler.h"
 #include "MouseHandler.h"
@@ -17,6 +18,7 @@ public:
 	SDL_Texture *heroTexture;
 	Animation *heroAnimation;
 	Hero *hero;
+	Wall *wallTop;
 	
 	SDL_Texture *textTexture;
 

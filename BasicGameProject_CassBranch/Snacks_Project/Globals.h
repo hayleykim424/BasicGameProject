@@ -10,4 +10,5 @@ public:
 	static SDL_Renderer *renderer;
 	static bool quitGame;
 	static GameStateMachine gsm;
+	static int screenWidth, screenHeight;
 };

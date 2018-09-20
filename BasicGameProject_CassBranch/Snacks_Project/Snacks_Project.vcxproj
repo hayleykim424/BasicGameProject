@@ -40,8 +40,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>J:\AIT\Game Engine\Assingment\Snacks\BasicGameProject\sdl2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>J:\AIT\Game Engine\Assingment\Snacks\BasicGameProject\sdl2\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>J:\AIT\Game Engine\Assingment\Snacks\BasicGameProject_CassBranch\sdl2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>J:\AIT\Game Engine\Assingment\Snacks\BasicGameProject_CassBranch\sdl2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -86,6 +86,7 @@
     <ClCompile Include="PlayGameState.cpp" />
     <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="Wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="PlayGameState.h" />
     <ClInclude Include="SoundManager.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Wall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

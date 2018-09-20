@@ -9,6 +9,7 @@
 #include "GameObject.h"
 #include "Arrow.h"
 #include "Hero.h"
+#include "Wall.h"
 
 #include <conio.h>
 #include <windows.h>
@@ -56,7 +57,7 @@ int main(int argc, char **argv)
 	}
 
 	//Creating window
-	SDL_Window *window = SDL_CreateWindow("SNACKS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 500, 700, SDL_WINDOW_SHOWN);
+	SDL_Window *window = SDL_CreateWindow("SNACKS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, Globals::screenWidth, Globals::screenHeight, SDL_WINDOW_SHOWN);
 
 	if (window != NULL)
 		cout << "Window created :)" << endl;
@@ -122,10 +123,6 @@ int main(int argc, char **argv)
 	Globals::gsm.pushState(new MenuGameState());
 
 	
-
-	
-	
-
 	
 	int menu_item = 0, x = 7;
 	
@@ -135,9 +132,6 @@ int main(int argc, char **argv)
 
 	
 	
-	
-	
-
 
 //WHERE THE MAGIC HAPPENS
 	bool loop = true;
