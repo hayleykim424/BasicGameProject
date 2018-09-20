@@ -24,6 +24,11 @@ public:
 	Wall *wallBottom;
 	
 	SDL_Texture *textTexture;
+	SDL_Texture* textTexture1 = NULL;
+	SDL_Texture* textTexture2 = NULL;
+
+	SDL_Rect textDestination1;
+	SDL_Rect textDestination2;
 
 	list<GameObject*> gameObjects;
 

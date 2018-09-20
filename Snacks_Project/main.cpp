@@ -7,7 +7,6 @@
 
 #include "Animation.h"
 #include "GameObject.h"
-#include "Arrow.h"
 #include "Hero.h"
 #include "Wall.h"
 

@@ -45,8 +45,8 @@ void KeyboardHandler::update(SDL_Event * event)
 	//if (keystates[SDL_SCANCODE_DOWN])
 	//	hero->velocity.y = 80;
 	if (keystates[SDL_SCANCODE_LEFT])
-		hero->velocity.x = -80;
+		hero->velocity.x = -300;
 	if (keystates[SDL_SCANCODE_RIGHT])
-		hero->velocity.x = 80;
+		hero->velocity.x = 300;
 
 }

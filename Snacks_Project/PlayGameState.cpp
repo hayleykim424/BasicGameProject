@@ -11,13 +11,13 @@ PlayGameState::PlayGameState()
 
 	SDL_FreeSurface(runSurface);
 
-	heroAnimation = new Animation(heroTexture, Globals::renderer, 4, 32, 32, 0.9);
+	heroAnimation = new Animation(heroTexture, Globals::renderer, 6, 64, 70, 0.3);
 
 	hero = new Hero();
 	hero->setAnimation(heroAnimation);
 	hero->setRenderer(Globals::renderer);
 	hero->pos.x = 250;
-	hero->pos.y = 640;
+	hero->pos.y = 607;
 
 	wallTop = new Wall();
 	wallTop->setRenderer(Globals::renderer);
@@ -56,7 +56,32 @@ PlayGameState::PlayGameState()
 
 	lastUpdate = SDL_GetTicks();
 
+	//TEXT: ESC - EXIT*****************************************************************
+	TTF_Font* font1 = TTF_OpenFont("assets/BebasNeueBold.ttf", 15);
+	SDL_Color textcolour1 = { 0, 0, 0, 255 };
+	SDL_Surface* textSurface1 = TTF_RenderText_Blended(font1, "ESC - EXIT", textcolour1);
+	textTexture1 = SDL_CreateTextureFromSurface(Globals::renderer, textSurface1);
+	SDL_FreeSurface(textSurface1);
 
+	textDestination1;
+	textDestination1.x = 410;
+	textDestination1.y = 350;
+
+	SDL_QueryTexture(textTexture1, NULL, NULL, &textDestination1.w, &textDestination1.h);
+
+
+	//TEXT: Lvl 1*****************************************************************
+	TTF_Font* font2 = TTF_OpenFont("assets/BebasNeueBold.ttf", 30);
+	SDL_Color textcolour2 = { 128, 0, 32, 255 };
+	SDL_Surface* textSurface2 = TTF_RenderText_Blended(font2, "Lv. 1", textcolour2);
+	textTexture2 = SDL_CreateTextureFromSurface(Globals::renderer, textSurface2);
+	SDL_FreeSurface(textSurface1);
+
+	textDestination2;
+	textDestination2.x = 30;
+	textDestination2.y = 30;
+
+	SDL_QueryTexture(textTexture2, NULL, NULL, &textDestination2.w, &textDestination2.h);
 
 }
 
@@ -71,7 +96,8 @@ PlayGameState::~PlayGameState()
 	delete wallBottom;
 	delete heroAnimation;
 	SDL_DestroyTexture(heroTexture);
-
+	SDL_DestroyTexture(textTexture1);
+	SDL_DestroyTexture(textTexture2);
 }
 
 void PlayGameState::update()
@@ -133,8 +159,13 @@ void PlayGameState::update()
 
 void PlayGameState::render()
 {
-	SDL_SetRenderDrawColor(Globals::renderer, 255, 90, 0, 255);
+	SDL_SetRenderDrawColor(Globals::renderer, 255, 255, 255, 255);
 	SDL_RenderClear(Globals::renderer);
+
+	//text
+	SDL_RenderCopy(Globals::renderer, textTexture1, NULL, &textDestination1);
+	SDL_RenderCopy(Globals::renderer, textTexture2, NULL, &textDestination2);
+
 	for each (GameObject *go in gameObjects)
 	{
 		go->draw();
