@@ -19,6 +19,9 @@ public:
 	Animation *heroAnimation;
 	Hero *hero;
 	Wall *wallTop;
+	Wall *wallLeft;
+	Wall *wallRight;
+	Wall *wallBottom;
 	
 	SDL_Texture *textTexture;
 
