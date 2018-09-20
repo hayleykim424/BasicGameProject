@@ -40,10 +40,10 @@ void KeyboardHandler::update(SDL_Event * event)
 	hero->velocity.y = 0;
 
 	//key is considered down if = 1, no held down = 0
-	if (keystates[SDL_SCANCODE_UP])
-		hero->velocity.y = -80;
-	if (keystates[SDL_SCANCODE_DOWN])
-		hero->velocity.y = 80;
+	//if (keystates[SDL_SCANCODE_UP])
+	//	hero->velocity.y = -80;
+	//if (keystates[SDL_SCANCODE_DOWN])
+	//	hero->velocity.y = 80;
 	if (keystates[SDL_SCANCODE_LEFT])
 		hero->velocity.x = -80;
 	if (keystates[SDL_SCANCODE_RIGHT])

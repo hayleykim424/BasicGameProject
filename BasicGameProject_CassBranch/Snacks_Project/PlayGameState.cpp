@@ -16,29 +16,39 @@ PlayGameState::PlayGameState()
 	hero = new Hero();
 	hero->setAnimation(heroAnimation);
 	hero->setRenderer(Globals::renderer);
-	hero->pos.x = 200;
-	hero->pos.y = 200;
+	hero->pos.x = 250;
+	hero->pos.y = 640;
 
 	wallTop = new Wall();
 	wallTop->setRenderer(Globals::renderer);
-	wallTop->pos.x = 0;
-	wallTop->pos.y = 10;
-	/*
-	ball1 = new Ball();
-	ball1->setRenderer(Globals::renderer);
-	ball1->pos.x = 100;
-	ball1->pos.y = 0;
+	wallTop->setWidthAndHeight(500, 25);
+	wallTop->pos.x = 25;
+	wallTop->pos.y = 25;
 
-	ball2 = new Ball();
-	ball2->setRenderer(Globals::renderer);
-	ball2->pos.x = 400;
-	ball2->pos.y = 0;
-	*/
+	wallLeft = new Wall();
+	wallLeft->setRenderer(Globals::renderer);
+	wallLeft->setWidthAndHeight(25, 700);
+	wallLeft->pos.x = 25;
+	wallLeft->pos.y = 25;
+
+	wallRight = new Wall();
+	wallRight->setRenderer(Globals::renderer);
+	wallRight->setWidthAndHeight(25, 700);
+	wallRight->pos.x = 500;
+	wallRight->pos.y = 25;
+
+	wallBottom = new Wall();
+	wallBottom->setRenderer(Globals::renderer);
+	wallBottom->setWidthAndHeight(500, 25);
+	wallBottom->pos.x = 25;
+	wallBottom->pos.y = 700;
+
 	//add them to the list of game objects
 	gameObjects.push_back(hero);
 	gameObjects.push_back(wallTop);
-	//gameObjects.push_back(ball1);
-	//gameObjects.push_back(ball2);
+	gameObjects.push_back(wallLeft);
+	gameObjects.push_back(wallRight);
+	gameObjects.push_back(wallBottom);
 
 	keyboardHandler.hero = hero;
 	mouseHandler.hero = hero;
@@ -55,8 +65,10 @@ PlayGameState::~PlayGameState()
 {
 	//cleanup dynamic memory
 	delete hero;
-	//delete ball1;
-	//delete ball2;
+	delete wallTop;
+	delete wallLeft;
+	delete wallRight;
+	delete wallBottom;
 	delete heroAnimation;
 	SDL_DestroyTexture(heroTexture);
 

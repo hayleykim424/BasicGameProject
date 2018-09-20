@@ -16,10 +16,11 @@ void Wall::setWidthAndHeight(int w, int h){
 }
 
 void Wall::draw(){
-		SDL_Rect wallRect = { pos.x, pos.y, w, h };
+		
 
 	//								 R	 G	 B	  A
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	SDL_Rect wallRect = { pos.x-25, pos.y-25, w, h };
 	SDL_RenderFillRect(renderer, &wallRect);
 
 }
