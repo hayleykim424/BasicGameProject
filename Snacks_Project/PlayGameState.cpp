@@ -4,51 +4,37 @@
 PlayGameState::PlayGameState()
 {
 	SDL_Surface *runSurface = IMG_Load("assets/run.png");
+	SDL_Surface *fruitSurface = IMG_Load("assets/fruit.png");
+
 	//make the background color of this image transparent
 	SDL_SetColorKey(runSurface, 1, SDL_MapRGB(runSurface->format, 120, 120, 255));
+
 	//convert to texture
 	heroTexture = SDL_CreateTextureFromSurface(Globals::renderer, runSurface);
-
 	SDL_FreeSurface(runSurface);
 
+	fruitTexture = SDL_CreateTextureFromSurface(Globals::renderer, fruitSurface);
+	SDL_FreeSurface(fruitSurface);
+
 	heroAnimation = new Animation(heroTexture, Globals::renderer, 6, 64, 70, 0.3);
+
+	fruitAnimation = new Animation(fruitTexture, Globals::renderer, 32, 32);
 
 	hero = new Hero();
 	hero->setAnimation(heroAnimation);
 	hero->setRenderer(Globals::renderer);
-	hero->pos.x = 250;
-	hero->pos.y = 607;
+	hero->pos.x = 180;
+	hero->pos.y = 530;
 
-	wallTop = new Wall();
-	wallTop->setRenderer(Globals::renderer);
-	wallTop->setWidthAndHeight(500, 25);
-	wallTop->pos.x = 25;
-	wallTop->pos.y = 25;
-
-	wallLeft = new Wall();
-	wallLeft->setRenderer(Globals::renderer);
-	wallLeft->setWidthAndHeight(25, 700);
-	wallLeft->pos.x = 25;
-	wallLeft->pos.y = 25;
-
-	wallRight = new Wall();
-	wallRight->setRenderer(Globals::renderer);
-	wallRight->setWidthAndHeight(25, 700);
-	wallRight->pos.x = 500;
-	wallRight->pos.y = 25;
-
-	wallBottom = new Wall();
-	wallBottom->setRenderer(Globals::renderer);
-	wallBottom->setWidthAndHeight(500, 25);
-	wallBottom->pos.x = 25;
-	wallBottom->pos.y = 700;
+	//falling objects
+	fallingObj = new FallingObject();
+	fallingObj->setAnimation(fruitAnimation);
+	fallingObj->pos.x = 100;
+	fallingObj->pos.y = 0;
 
 	//add them to the list of game objects
 	gameObjects.push_back(hero);
-	gameObjects.push_back(wallTop);
-	gameObjects.push_back(wallLeft);
-	gameObjects.push_back(wallRight);
-	gameObjects.push_back(wallBottom);
+	gameObjects.push_back(fallingObj);
 
 	keyboardHandler.hero = hero;
 	mouseHandler.hero = hero;
@@ -64,7 +50,7 @@ PlayGameState::PlayGameState()
 	SDL_FreeSurface(textSurface1);
 
 	textDestination1;
-	textDestination1.x = 410;
+	textDestination1.x = 380;
 	textDestination1.y = 350;
 
 	SDL_QueryTexture(textTexture1, NULL, NULL, &textDestination1.w, &textDestination1.h);
@@ -90,11 +76,8 @@ PlayGameState::~PlayGameState()
 {
 	//cleanup dynamic memory
 	delete hero;
-	delete wallTop;
-	delete wallLeft;
-	delete wallRight;
-	delete wallBottom;
 	delete heroAnimation;
+	//delete fallingObj;
 	SDL_DestroyTexture(heroTexture);
 	SDL_DestroyTexture(textTexture1);
 	SDL_DestroyTexture(textTexture2);
@@ -106,6 +89,23 @@ void PlayGameState::update()
 	Uint32 timeStuff = SDL_GetTicks() - lastUpdate;
 	dt = timeStuff / 1000.0;
 	lastUpdate = SDL_GetTicks();
+
+	//tick timer down slowly over time
+	nextDropTimer -= dt;
+
+	if (nextDropTimer <= 0){
+		//timer finished, do something, then reset timer
+
+		//falling objects
+		fallingObj = new FallingObject();
+		fallingObj->setAnimation(fruitAnimation);
+		fallingObj->pos.x = (rand() % 380) + 20;
+		fallingObj->pos.y = 0;
+
+		gameObjects.push_back(fallingObj);
+
+		nextDropTimer = (rand() % 1000) / 1000.0f; //0-1 e.g 0.344 = 344ms
+	}
 
 	//deal with events
 	SDL_Event event;
@@ -151,7 +151,44 @@ void PlayGameState::update()
 
 	for each (GameObject *go in gameObjects)
 	{
+
+
 		go->update(dt);
+
+
+		if (go->type == "fallingObject"){
+			//cast gameObject pointer to FallingObject pointer
+			FallingObject* fo = (FallingObject*)go;
+
+			//collision check for hero and falling obj
+			SDL_Rect hero_rect = { hero->pos.x, hero->pos.y, 64, 70 };
+			SDL_Rect ball_rect = { fo->pos.x, fo->pos.y, 32, 32 };
+
+
+			if (hero->AABBCheck(hero_rect, ball_rect) == true)
+			{
+				//delete (*go);
+				//go = gameObjects.erase(go);
+				fo->removeObj = true;
+			}
+		}
+		
+	}
+
+	//remove objects if needed
+	for (list<GameObject*>::iterator go = gameObjects.begin(); go != gameObjects.end();/*if deleting, dont put in go++, else, go++*/ )
+	{
+		//* can dereference a pointer to get thing it points at
+		//so (*go) gives me the GameObject* at the position in the list iterator is pointing at
+		if ((*go)->removeObj)
+		{
+			//delete dynamic memory of game object
+			delete (*go);
+			//remove game object pointer from the list
+			go = gameObjects.erase(go);
+		}
+		else
+			go++;
 
 	}
 

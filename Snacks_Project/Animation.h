@@ -17,6 +17,10 @@ public:
 	float frameTimer;//timer that ticks down by dt increments
 
 	Animation(SDL_Texture* spriteSheet, SDL_Renderer* renderer, int numberOfFrames, int frameWidth, int frameHeight, float frameDuration);
+
+	Animation(SDL_Texture* spriteSheet, SDL_Renderer* renderer, int frameWidth, int frameHeight);
+
+
 	void update(float dt);//update timers and things
 	void draw(int x, int y);
 	void draw(int x, int y, bool flip);

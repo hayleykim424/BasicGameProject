@@ -12,6 +12,20 @@ Animation::Animation(SDL_Texture* spriteSheet, SDL_Renderer* renderer, int numbe
 	currentFrame = 0;
 	frameTimer = 0;
 }
+
+
+Animation::Animation(SDL_Texture* spriteSheet, SDL_Renderer* renderer, int frameWidth, int frameHeight)
+{
+	this->spriteSheet = spriteSheet;
+	this->renderer = renderer;
+	this->frameWidth = frameWidth;
+	this->frameHeight = frameHeight;
+
+}
+
+
+
+
 void Animation::update(float dt)
 {
 	//update frameTimer

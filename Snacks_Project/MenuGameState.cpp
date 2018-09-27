@@ -18,7 +18,7 @@ MenuGameState::MenuGameState()
 
 	//setup rectangle to describe where to draw this text
 	 textDestination;
-	textDestination.x = 53;
+	textDestination.x = 26;
 	textDestination.y = 100;
 	//to get the width and height, query the surface
 	SDL_QueryTexture(textTexture, NULL, NULL, &textDestination.w, &textDestination.h);
@@ -32,7 +32,7 @@ MenuGameState::MenuGameState()
 	SDL_FreeSurface(textSurface1);
 
 	 textDestination1;
-	textDestination1.x = 110;
+	textDestination1.x = 80;
 	textDestination1.y = 270;
 
 	SDL_QueryTexture(textTexture1, NULL, NULL, &textDestination1.w, &textDestination1.h);
@@ -47,7 +47,7 @@ MenuGameState::MenuGameState()
 	SDL_FreeSurface(textSurface2);
 
 	 textDestination2;
-	textDestination2.x = 200;
+	textDestination2.x = 170;
 	textDestination2.y = 200;
 
 
@@ -67,7 +67,7 @@ MenuGameState::MenuGameState()
 
 
 	 textDestination3;
-	textDestination3.x = 130;
+	textDestination3.x = 100;
 	textDestination3.y = 340;
 	SDL_QueryTexture(textTexture3, NULL, NULL, &textDestination3.w, &textDestination3.h);
 

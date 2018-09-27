@@ -1,6 +1,9 @@
 #pragma once
 #include <SDL.h>
 #include "Vector.h"
+#include <string>
+
+using namespace std;
 
 class GameObject{
 protected:
@@ -9,6 +12,8 @@ protected:
 public:
 	Vector pos; //position
 	Vector velocity; //how fast to move in any direction
+	bool removeObj = false;
+	string type = "gameobject";
 
 	void setRenderer(SDL_Renderer* renderer);
 

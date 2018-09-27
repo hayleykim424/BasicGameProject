@@ -9,10 +9,13 @@
 #include "GameObject.h"
 #include "Hero.h"
 #include "Wall.h"
+#include "FallingObject.h"
 
 #include <conio.h>
 #include <windows.h>
 #include <cstdlib>
+#include <stdlib.h>
+#include <time.h>
 
 #include <list>
 #include "KeyboardHandler.h"
@@ -38,6 +41,15 @@ SDL_Rect destinationRect;
 
 int main(int argc, char **argv)
 {
+
+	//set the seed value for the random number series
+	srand(time(NULL));
+
+	//rand gives number between 0 - max int number(2147483647)
+	//so use modulus to control the numbers
+
+	//1-10
+	int num = rand() % 10+1;
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
 	{

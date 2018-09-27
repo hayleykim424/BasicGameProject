@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="FallingObject.cpp" />
     <ClCompile Include="GameControllerHandler.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -89,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="FallingObject.h" />
     <ClInclude Include="GameControllerHandler.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameState.h" />

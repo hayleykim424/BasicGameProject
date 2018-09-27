@@ -10,6 +10,7 @@
 #include "MouseHandler.h"
 #include "Globals.h"
 #include "MenuGameState.h"
+#include "FallingObject.h"
 
 class PlayGameState :
 	public GameState
@@ -17,11 +18,16 @@ class PlayGameState :
 public:
 	SDL_Texture *heroTexture;
 	Animation *heroAnimation;
+
+	SDL_Texture *fruitTexture;
+	Animation *fruitAnimation;
+
 	Hero *hero;
 	Wall *wallTop;
 	Wall *wallLeft;
 	Wall *wallRight;
 	Wall *wallBottom;
+	FallingObject *fallingObj;
 	
 	SDL_Texture *textTexture;
 	SDL_Texture* textTexture1 = NULL;
@@ -29,6 +35,8 @@ public:
 
 	SDL_Rect textDestination1;
 	SDL_Rect textDestination2;
+
+	float nextDropTimer = 1; //1 = 1 second, so 0.100 = 100ms
 
 	list<GameObject*> gameObjects;
 

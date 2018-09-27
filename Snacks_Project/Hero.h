@@ -17,5 +17,7 @@ public:
 	//override GameObject methods
 	virtual void update(float dt);
 	virtual void draw();
+
+	bool AABBCheck(SDL_Rect b1, SDL_Rect b2);
 };
 
