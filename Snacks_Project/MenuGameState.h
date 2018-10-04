@@ -2,6 +2,7 @@
 #include "GameState.h"
 #include "Globals.h"
 #include "PlayGameState.h"
+#include "HallOfFame.h"
 #include <SDL_ttf.h>
 class MenuGameState :
 	public GameState

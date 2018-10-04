@@ -3,6 +3,8 @@
 #include "GameStateMachine.h"
 class Globals
 {
+private:
+	int score;
 public:
 	Globals();
 	~Globals();
@@ -11,4 +13,5 @@ public:
 	static bool quitGame;
 	static GameStateMachine gsm;
 	static int screenWidth, screenHeight;
+	static int heroScore;
 };

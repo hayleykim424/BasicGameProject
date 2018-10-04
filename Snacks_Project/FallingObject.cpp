@@ -5,9 +5,18 @@ FallingObject::FallingObject()
 {
 	velocity.x = 0;
 	velocity.y = 0;
-	gravity = 200;//adding 200 velocity over 1 second
+	gravity = 300;//adding 200 velocity over 1 second
 
 	type = "fallingObject";
+}
+
+void FallingObject::angryFallingObject()
+{
+	velocity.x = 0;
+	velocity.y = 0;
+	gravity = 200;//adding 200 velocity over 1 second
+
+	type = "angryFallingObject";
 }
 
 
@@ -58,4 +67,10 @@ void FallingObject::draw(){
 void FallingObject::setAnimation(Animation *animation){
 	this->animation = animation;
 
+}
+
+int FallingObject::getGravity(int moreGravity)
+{
+	gravity = gravity + moreGravity;
+	return gravity;
 }

@@ -13,9 +13,45 @@ Hero::~Hero()
 
 void Hero::setAnimation(Animation *animation){
 	this->animation = animation;
-
+	level = 1;
+	score = 0;
+	hp = 2;
 }
 
+int Hero::calculateScoreAndLevel(int heroScore)
+{
+	score = score + heroScore;
+
+	if (score > 2000)
+	{
+		level = 2;
+	}
+	cout << "Score: " << score << endl;
+	cout << "Level: " << level << endl;
+	return score;
+	
+}
+
+int Hero::getHeroLevel()
+{
+	return level;
+}
+
+int Hero::getHeroHp()
+{
+	return hp;
+}
+
+int Hero::getHeroScore()
+{
+	return score;
+}
+
+
+void Hero::takeHpOff(int heroHp)
+{
+	hp -= heroHp;
+}
 
 
 void Hero::update(float dt)

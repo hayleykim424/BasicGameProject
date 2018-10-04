@@ -24,6 +24,7 @@
 #include "SoundManager.h"
 #include "Globals.h"
 #include "MenuGameState.h"
+#include "HallOfFame.h"
 
 
 

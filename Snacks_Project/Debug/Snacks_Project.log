@@ -1,32 +1,24 @@
-﻿Build started 9/27/2018 5:02:14 PM.
+﻿Build started 10/4/2018 5:26:13 PM.
      1>Project "C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Snacks_Project\Snacks_Project.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt FallingObject.cpp GameControllerHandler.cpp GameObject.cpp Hero.cpp InputHandler.cpp KeyboardHandler.cpp MenuGameState.cpp MouseHandler.cpp PlayGameState.cpp Wall.cpp main.cpp
-         PlayGameState.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(19): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(90): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(102): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(164): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(165): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
-         MouseHandler.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\mousehandler.cpp(36): warning C4244: '=' : conversion from 'Sint32' to 'float', possible loss of data
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\mousehandler.cpp(37): warning C4244: '=' : conversion from 'Sint32' to 'float', possible loss of data
-         KeyboardHandler.cpp
-         InputHandler.cpp
-         Hero.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\hero.cpp(53): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\hero.cpp(55): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
-         FallingObject.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\fallingobject.cpp(53): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt HallOfFame.cpp MenuGameState.cpp PlayGameState.cpp main.cpp
+         HallOfFame.cpp
          Generating Code...
          Compiling...
          main.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\main.cpp(46): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
-         Wall.cpp
-     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\wall.cpp(23): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\main.cpp(47): warning C4244: 'argument' : conversion from 'time_t' to 'unsigned int', possible loss of data
+         PlayGameState.cpp
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(23): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(190): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(227): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(238): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(255): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(270): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(334): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(335): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(356): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\6720\documents\visual studio 2013\projects\current\basicgameproject\snacks_project\playgamestate.cpp(357): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
          MenuGameState.cpp
-         GameObject.cpp
-         GameControllerHandler.cpp
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Debug\Snacks_Project.exe" /INCREMENTAL /NOLOGO SDL2.lib SDL2main.lib SDL2_image.lib SDL2_ttf.lib SDL2_mixer.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Debug\Snacks_Project.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Debug\Snacks_Project.lib" /MACHINE:X86 Debug\Animation.obj
@@ -36,6 +28,7 @@
          Debug\GameState.obj
          Debug\GameStateMachine.obj
          Debug\Globals.obj
+         Debug\HallOfFame.obj
          Debug\Hero.obj
          Debug\InputHandler.obj
          Debug\KeyboardHandler.obj
@@ -46,10 +39,9 @@
          Debug\SoundManager.obj
          Debug\Vector.obj
          Debug\Wall.obj
-     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          Snacks_Project.vcxproj -> C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Debug\Snacks_Project.exe
      1>Done Building Project "C:\Users\6720\Documents\Visual Studio 2013\Projects\current\BasicGameProject\Snacks_Project\Snacks_Project.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.53
+Time Elapsed 00:00:02.39

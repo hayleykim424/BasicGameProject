@@ -3,6 +3,7 @@
 
 Globals::Globals()
 {
+	score = 0;
 }
 
 
@@ -15,3 +16,4 @@ bool Globals::quitGame = false;
 GameStateMachine Globals::gsm;
 int Globals::screenWidth = 450;
 int Globals::screenHeight = 600;
+int Globals::heroScore = 0;

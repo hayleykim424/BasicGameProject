@@ -14,6 +14,10 @@ public:
 	FallingObject();
 	~FallingObject();
 
+	void angryFallingObject();
+
+	int getGravity(int moreGravity);
+
 	void update(float dt);
 	void draw();
 	void setAnimation(Animation *animation);
